@@ -1,0 +1,192 @@
+object EasingDemo: TEasingDemo
+  Left = 2417
+  Height = 635
+  Top = 234
+  Width = 778
+  Caption = 'Easing Demo'
+  ClientHeight = 635
+  ClientWidth = 778
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '3.3.0.0'
+  object pb: TPaintBox
+    Left = 0
+    Height = 635
+    Top = 0
+    Width = 542
+    Align = alClient
+    OnPaint = pbPaint
+  end
+  object Panel1: TPanel
+    Left = 547
+    Height = 635
+    Top = 0
+    Width = 231
+    Align = alRight
+    ClientHeight = 635
+    ClientWidth = 231
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 7
+      Height = 15
+      Top = 15
+      Width = 70
+      Caption = 'Start position'
+    end
+    object edStartX: TEdit
+      Left = 116
+      Height = 23
+      Top = 11
+      Width = 49
+      TabOrder = 0
+      Text = '10'
+    end
+    object edStartY: TEdit
+      Left = 173
+      Height = 23
+      Top = 11
+      Width = 49
+      TabOrder = 1
+      Text = '10'
+    end
+    object Label2: TLabel
+      Left = 8
+      Height = 15
+      Top = 43
+      Width = 106
+      Caption = 'Destination position'
+    end
+    object edStopX: TEdit
+      Left = 117
+      Height = 23
+      Top = 39
+      Width = 49
+      TabOrder = 2
+      Text = '500'
+    end
+    object edStopY: TEdit
+      Left = 174
+      Height = 23
+      Top = 39
+      Width = 49
+      TabOrder = 3
+      Text = '500'
+    end
+    object Label3: TLabel
+      Left = 8
+      Height = 15
+      Top = 73
+      Width = 32
+      Caption = 'Speed'
+    end
+    object tbSpeed: TTrackBar
+      Left = 116
+      Height = 25
+      Top = 68
+      Width = 107
+      Max = 100
+      Min = 1
+      OnChange = tbSpeedChange
+      Position = 60
+      TabOrder = 4
+    end
+    object rgEasingMode: TRadioGroup
+      Left = 0
+      Height = 88
+      Top = 152
+      Width = 217
+      AutoFill = True
+      Caption = ' Easing Mode'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 68
+      ClientWidth = 213
+      ItemIndex = 2
+      Items.Strings = (
+        'In'
+        'Out'
+        'In and Out'
+      )
+      OnSelectionChanged = rgEasingFunctionSelectionChanged
+      TabOrder = 5
+    end
+    object btnDoIt: TButton
+      Left = 0
+      Height = 25
+      Top = 546
+      Width = 219
+      Caption = 'Start'
+      TabOrder = 6
+      OnClick = btnDoItClick
+    end
+    object rgEasingFunction: TRadioGroup
+      Left = 1
+      Height = 287
+      Top = 249
+      Width = 218
+      AutoFill = True
+      Caption = 'Easing Function'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 267
+      ClientWidth = 214
+      ItemIndex = 0
+      Items.Strings = (
+        'Linear'
+        'Quadratic'
+        'Cubic'
+        'Quartic'
+        'Quintic'
+        'Sine'
+        'Circular'
+        'Exponential'
+        'Elastic'
+        'Back'
+        'Bounce'
+      )
+      OnSelectionChanged = rgEasingFunctionSelectionChanged
+      TabOrder = 7
+    end
+    object Label4: TLabel
+      Left = 8
+      Height = 15
+      Top = 101
+      Width = 56
+      Caption = 'Resolution'
+    end
+    object tbResolution: TTrackBar
+      Left = 117
+      Height = 25
+      Top = 96
+      Width = 107
+      Max = 100
+      Min = 1
+      OnChange = tbResolutionChange
+      Position = 60
+      TabOrder = 8
+    end
+  end
+  object Splitter1: TSplitter
+    Left = 542
+    Height = 635
+    Top = 0
+    Width = 5
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object DemoTimer: TTimer
+    OnTimer = DemoTimerTimer
+    Left = 346
+    Top = 43
+  end
+end
