@@ -33,6 +33,7 @@ type
     procedure btnDoItClick(Sender: TObject);
     procedure DemoTimerTimer(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure pbPaint(Sender: TObject);
     procedure rgEasingFunctionSelectionChanged(Sender: TObject);
     procedure tbResolutionChange(Sender: TObject);
@@ -103,6 +104,11 @@ begin
   fbmp.Canvas.Brush.Color := clWhite;
   fbmp.Canvas.Pen.Color := clBlack;
   fForward := true;
+end;
+
+procedure TEasingDemo.FormDestroy(Sender: TObject);
+begin
+  fbmp.Free;
 end;
 
 procedure TEasingDemo.pbPaint(Sender: TObject);
